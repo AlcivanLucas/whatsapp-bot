@@ -13,3 +13,5 @@ git commit -m "first commit"
 git branch -M main
 git push -u origin main
 
+repos : https://github.com/victorharry/wpp-sticker
+materiais: https://www.tabnews.com.br/victorharry/como-criar-um-bot-de-sticker-para-o-whatsapp

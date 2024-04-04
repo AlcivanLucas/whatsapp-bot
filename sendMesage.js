@@ -1,4 +1,7 @@
-export function sendMessage(client){
+
+
+export async function sendMessage(client){
+
     client.on('message_create', message => {
         if (message.body === '!help') {
             // send back "pong" to the chat the message was sent in
@@ -8,7 +11,7 @@ export function sendMessage(client){
         }else if(message.body === '!hello'){
             message.reply(`Hello Cachorro 😜✌️`)
         }
-        
+
     });
 }
 
