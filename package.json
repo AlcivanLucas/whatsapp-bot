@@ -1,0 +1,18 @@
+{
+  "name": "whatsapp-bot",
+  "version": "1.0.0",
+  "description": "é um bot para whatsapp ",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "tsx --watch main.js"
+  },
+  "author": "Alcivan",
+  "license": "ISC",
+  "dependencies": {
+    "nodejs": "^0.0.0",
+    "qrcode-terminal": "^0.12.0",
+    "tsx": "^4.7.1",
+    "whatsapp-web.js": "^1.23.0"
+  }
+}

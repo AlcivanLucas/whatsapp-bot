@@ -1,0 +1,15 @@
+Esse é o site onde tem a base no bot
+https://blog.rocketseat.com.br/como-criar-um-bot-de-whatsapp-com-javascript-um-guia-pratico/
+
+# Excluir node_modules e package-lock.json
+rm -rf node_modules package-lock.json
+
+
+--------comandos git-----
+git init 
+git remote add origin https://github.com/AlcivanLucas/whatsapp-bot.git
+git add .
+git commit -m "first commit"
+git branch -M main
+git push -u origin main
+
