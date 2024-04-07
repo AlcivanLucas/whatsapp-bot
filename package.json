@@ -5,7 +5,8 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "tsx --watch main.js"
+    "start": "tsx --watch ./src/app.js",
+    "dev": "tsx --watch index.js"
   },
   "author": "Alcivan",
   "license": "ISC",

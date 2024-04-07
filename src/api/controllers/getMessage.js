@@ -5,11 +5,6 @@ export async function getMessage(client) {
         // console.log(message.body);
         console.log(`o ${message.to} enviou ${message.body} para ${message.from}`)
     });
-    
- 
-
-
-
 }
 
 

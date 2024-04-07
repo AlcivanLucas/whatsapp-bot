@@ -1,31 +1,34 @@
-const fs = require('fs');
+const fs = require ('fs');
 const path  = require('path');
 
 // essa função envia as provas 
 const { MessageMedia } = require('whatsapp-web.js');
 
 export async function sendMedia(client){
-    // client initialization...
-
     client.on('message_create', async (msg) => {
-        if (msg.body === '!provas') {
-            const media = MessageMedia.fromFilePath('./src/assets/provas.png');
-            await client.sendMessage(msg.from, media);
-        }else if(msg.body === '!horario'){
-            const horario = MessageMedia.fromFilePath('./src/assets/horario.jpeg');
-            await client.sendMessage(msg.from, horario)
-        }else if(msg.body === '!surpresa'){
-            const audioPath = './src/assets/aicachorrofunk.mp3'; // Caminho do arquivo de �udio
-            const audio = MessageMedia.fromFilePath(audioPath);
-            await client.sendMessage(msg.from, audio);
-        }else if(msg.body === '!pix'){
-            const audioPath = './src/assets/pix.mp3'; // Caminho do arquivo de �udio
-            const audio = MessageMedia.fromFilePath(audioPath);
-            await client.sendMessage(msg.from, audio);
+        try {
+            if (msg.body === '!provas') {
+                const media = MessageMedia.fromFilePath(path.join(__dirname,'../../assets/provas.png'));
+                await client.sendMessage(msg.from, media);
+            }else if(msg.body === '!horario'){
+                const horario = MessageMedia.fromFilePath(path.join(__dirname,'../../assets/horario.jpeg'));
+                await client.sendMessage(msg.from, horario)
+            }else if(msg.body === '!surpresa'){
+                const audioPath = '../../assets/aicachorrofunk.mp3'; // Caminho do arquivo de �udio
+                const audio = MessageMedia.fromFilePath(path.join(__dirname,audioPath));
+                await client.sendMessage(msg.from, audio);
+            }else if(msg.body === '!pix'){
+                const audioPath = '../../assets/pix.mp3'; // Caminho do arquivo de �udio
+                const audio = MessageMedia.fromFilePath(path.join(__dirname,audioPath));
+                await client.sendMessage(msg.from, audio);
+            }
+        } catch(Error){
+            client.sendMessage(msg.from, "*[❎]* Failed load image!");
+            console.log(Error)
         }
     });
 
-    // ******************FUNÇÃO DESATIVA POR TER NOCIVA kjKJKJJKJKKJ********************
+    // ******************FUNÇÃO DESATIVADA POR SER NOCIVA kjKJKJJKJKKJ********************
     // manda um Audio quando alguem apaga a mensagem 
     // client.on('message_revoke_everyone', async (after, before) => {
     //     // 'after' é a mensagem como está depois de ser apagada (geralmente nula)

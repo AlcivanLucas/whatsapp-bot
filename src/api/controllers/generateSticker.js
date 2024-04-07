@@ -1,59 +1,17 @@
-const { Client, LocalAuth} = require('whatsapp-web.js');
+const {MessageMedia} = require ('whatsapp-web.js')
 const fs = require('fs');
+const config = require('../../config/config.json');
 
-import { consoleText } from './consoleText.js';
-import { generateSticker } from './generateSticker.js';
-import { getMessage } from './getMessage.js';
-import { sendMessage } from './sendMesage.js';
-import {sendMedia} from './sendMedia.js';
-import { tickAll } from './tickall.js';
-
-try {
-    // Create a new client instance
-    const client = new Client({ 
-        authStrategy: new LocalAuth({ 
-            dataPath: "sessions", 
-        }), 
-        webVersionCache: { 
-            type: 'remote', 
-            remotePath: 'https://raw.githubusercontent.com/wppconnect-team/wa-version/main/html/2.2412.54.html', 
-        },
-        puppeteer: {
-            executablePath: '/usr/bin/google-chrome-stable',
-        }
-    });
-
-    const qrcode = require('qrcode-terminal');
-
-    // When the client is ready, run this code (only once)
-    client.on('ready', () => {
-        console.clear();
-        consoleText() //exibi no terminal o nome do bot 
-    });
-
-    // When the client received QR-Code
-    client.on('qr', qr => {
-        qrcode.generate(qr, {small: true});
-    });
-
-    // função que ouvi todas as emnsagens do zap zap 
-    // getMessage(client)
-
-    // função que envia mensagem 
-    sendMessage(client)
-
-    //função que envia mídias 
-    sendMedia(client)
-
-    const config = require('./config.json');
-
+export async function generateSticker (client){
     client.on('message', async (message) => {
         const isGroups = message.from.endsWith('@g.us') ? true : false;
         if ((isGroups && config.groups) || !isGroups) {
     
-            // Imagem para Figurinha (Auto && Caption)
+            // Bugs bot: texto to sticker, gif to sticker 
+
+            // Image to sticker (Auto && Caption)
             // if ((message.type == "image" || message.type == "video" || message.type  == "gif") || (message._data.caption == `${config.prefix}figurinha`)) {
-            if ((message.type == "image" || message.type  == "gif") || (message._data.caption == `${config.prefix}figurinha`)) {
+            if ((message.type == "image" ) && (message._data.caption == `${config.prefix}figurinha`)) {
                 client.sendMessage(message.from, "*[⏳]* Loading..");
                 try {
                     const media = await message.downloadMedia();
@@ -153,19 +111,4 @@ try {
             }
         }
     });
-
-
-
-
-
-    // função converte image em sticker
-    // generateSticker(client)
-
-    // função que marca todos os integrantes do grupo
-    tickAll(client)
-
-    // Start your client
-    client.initialize();    
-} catch (error) {
-    console.log(Error,``)
 }

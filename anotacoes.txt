@@ -4,6 +4,9 @@ https://blog.rocketseat.com.br/como-criar-um-bot-de-whatsapp-com-javascript-um-g
 # Excluir node_modules e package-lock.json
 rm -rf node_modules package-lock.json
 
+-------------ORGANIZAÇÃO DE PASTAS USANDO O PRINCIPIO SOLID-------------
+https://medium.com/@stroklabs/como-organizar-e-estruturar-projetos-com-node-js-4845be004899
+
 
 --------comandos git-----
 git init 
