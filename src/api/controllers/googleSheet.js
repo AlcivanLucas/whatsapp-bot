@@ -1,6 +1,7 @@
 const { GoogleSpreadsheet } = require('google-spreadsheet');
 const credenciais = require('../../../credentiais.json'); // chave para minha conta de serviço
 const arquivo = require('../../../file.json'); // armazena o ID da minha planilha
+
 const getDoc = async () => {
     const doc = new GoogleSpreadsheet(arquivo.id);
     

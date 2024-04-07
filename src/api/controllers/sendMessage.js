@@ -1,7 +1,6 @@
+const fs = require('fs');
 
-
-export async function sendMessage(client){
-
+async function sendMessage(client){
     client.on('message_create', message => {
         if (message.body === '!help') {
             // send back "pong" to the chat the message was sent in
@@ -14,5 +13,4 @@ export async function sendMessage(client){
     });
 }
 
-
-// message.reply('pong');   ele envia a mensagem, respondendo o comando 
+module.exports = sendMessage;

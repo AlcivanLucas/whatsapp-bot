@@ -4,7 +4,7 @@ const path  = require('path');
 // essa função envia as provas 
 const { MessageMedia } = require('whatsapp-web.js');
 
-export async function sendMedia(client){
+async function sendMedia(client){
     client.on('message_create', async (msg) => {
         try {
             if (msg.body === '!provas') {
@@ -63,3 +63,5 @@ export async function sendMedia(client){
 
 
 }
+
+module.exports = sendMedia;

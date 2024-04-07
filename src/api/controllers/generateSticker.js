@@ -2,7 +2,7 @@ const {MessageMedia} = require ('whatsapp-web.js')
 const fs = require('fs');
 const config = require('../../config/config.json');
 
-export async function generateSticker (client){
+async function generateSticker (client){
     client.on('message', async (message) => {
         const isGroups = message.from.endsWith('@g.us') ? true : false;
         if ((isGroups && config.groups) || !isGroups) {
@@ -112,3 +112,5 @@ export async function generateSticker (client){
         }
     });
 }
+
+module.exports = generateSticker;

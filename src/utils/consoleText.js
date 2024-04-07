@@ -1,5 +1,5 @@
 const{colors} = require('colors');
-export function consoleText(){
+function consoleText(){
     console.log(`                                                                                                               
     :::::::::   ::::::::  :::::::::::       :::    :::     :::     ::::::::::: :::::::::     :::     :::::::::  
     :+:    :+: :+:    :+:     :+:           :+:    :+:   :+: :+:       :+:          :+:    :+: :+:   :+:    :+: 
@@ -10,3 +10,4 @@ export function consoleText(){
     #########   ########      ###            ########  ###     ###     ###     ######### ###     ### ###        
     `.green) 
 }
+module.exports = consoleText

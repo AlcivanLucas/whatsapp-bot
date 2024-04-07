@@ -5,8 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "tsx --watch ./src/app.js",
-    "dev": "tsx --watch index.js"
+    "start": "node ./src/app.js"
   },
   "author": "Alcivan",
   "license": "ISC",
@@ -18,6 +17,7 @@
     "google-spreadsheet": "^4.1.1",
     "googleapis": "^105.0.0",
     "nodejs": "^0.0.0",
+    "nodemon": "^3.1.0",
     "path": "^0.12.7",
     "qrcode-terminal": "^0.12.0",
     "tsx": "^4.7.1",
